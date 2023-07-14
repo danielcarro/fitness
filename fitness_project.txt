@@ -1,0 +1,34 @@
+///app fitness 1.0///
+
+
+////instalações de bibliotecas////
+npx create-expo-app -t expo-template-blank-typescript
+
+
+npx expo install react-native-screens react-native-safe-area-context
+
+
+npm install @react-navigation/native-stack
+
+
+npm install redux react-redux -- save
+
+npm install @types/react-redux -D
+
+npm install@reduxjs/toolkit
+
+npm install styled-components
+
+npm install @react-native-community/async-storage
+
+npm install --save-dev @types/react-navigation
+
+npm install @react-navigation/bottom-tabs
+
+
+npm install react-native-swipe-list-view --save
+
+npm install uuid --save
+
+expo install react-native-gesture-handler
+
