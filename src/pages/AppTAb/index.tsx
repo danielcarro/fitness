@@ -1,22 +1,55 @@
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
-import { useAppSelector } from '../../redux/hooks/useAppSelector';
+import CustomTabBar from '../../components/CustomTabBar';
 import { useNavigation } from '@react-navigation/native';
-import { Container, Texto, Botao } from './styles';
+import HomeStack from '../../navigators/HomeStack';
+import WorkoutStack from '../../navigators/WorkoutStack';
+import MyWorkoutStack from '../../navigators/MyWorkoutStack';
+import ConfigButton from '../../components/ConfigButton';
+
+const Tab = createBottomTabNavigator();
 
 const AppTab = () => {
-    const user = useAppSelector(state => state.user);
-    const navigation = useNavigation();
+  const navigation = useNavigation<any>(); // Corrigindo o tipo any para evitar erro
 
-    const handlePreload = () => {
-        navigation.navigate('Preload' as never);
-      };
+  // Defina os itens do TabBar que deseja exibir
+  const tabBarItems = [
+    {
+      type: 'regular',
+      text: 'Inicio',
+      icon: require('../../assets/home.png'),
+      route: 'HomeStack', // Nome da rota corrigido
+    },
+    {
+      type: 'big',
+      text: 'Workout',
+      icon: require('../../assets/dumbbell.png'),
+      route: 'WorkoutStack', // Nome da rota corrigido
+    },
+    {
+      type: 'regular',
+      text: 'Meus Treinos',
+      icon: require('../../assets/myworkouts.png'),
+      route: 'MyWorkout', // Nome da rota corrigido
+    },
+  ];
 
-    return (
-        <Container>
-            <Texto>AppTab - {user.name}</Texto>
-            <Botao title='ir para Preload' onPress={handlePreload}/>
-        </Container>
-    )
-}
+  // Função para navegar para a tela correspondente ao item selecionado
+  const handleTabPress = (route: string) => {
+    navigation.navigate(route);
+  };
+
+
+
+  return (
+    <Tab.Navigator tabBar={props => <CustomTabBar navigate={handleTabPress} items={tabBarItems} {...props} />}>
+      <Tab.Screen name="HomeStack" component={HomeStack} options={{title:'Seu Progresso Diário', headerTitleAlign: 'center', headerRight: () => <ConfigButton />, headerRightContainerStyle:{
+        marginRight:10
+      }}} />
+      <Tab.Screen name="WorkoutStack"  component={WorkoutStack} />
+      <Tab.Screen name="MyWorkout" component={MyWorkoutStack} />
+    </Tab.Navigator>
+  );
+};
 
 export default AppTab;

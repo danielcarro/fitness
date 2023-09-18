@@ -2,18 +2,19 @@ import React from 'react';
 import { Button, TextButton } from './styles';
 
 interface Props {
-  width: string;
-  text: string;
+  width: string ;
+  title: string;
   backgroundColor: string;
-  underlayColor: string
+  marginBottom: string;
+  underlayColor: string;
   color: string;
-  onPress: ()=>void;
+  onPress: ()=>void;  
 }
 
-const DefaultButton = ({width, text, backgroundColor, underlayColor,  color, onPress}: Props) => {
+const DefaultButton = ({title, width, backgroundColor, marginBottom, underlayColor,  color, onPress}: Props) => {
   return(
-    <Button width={width} backgroundColor={backgroundColor} underlayColor={underlayColor} onPress={onPress}>
-      <TextButton color={color}>{text}</TextButton>
+    <Button width={width} backgroundColor={backgroundColor} marginBottom={marginBottom} underlayColor={underlayColor} onPress={onPress}>
+      <TextButton color={color}>{title}</TextButton>
     </Button>
   )
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useAppSelector } from '../../redux/hooks/useAppSelector';
 import { useNavigation } from '@react-navigation/native';
 import {
     Container,
@@ -18,8 +17,7 @@ export type RootStackParamList = {
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
-const StarterIntro = () => {
-    //const user = useAppSelector(state => state.user);
+const StarterIntro = () => {    
     const navigation = useNavigation<NavigationProp>();
 
     const start = () => {
@@ -34,11 +32,10 @@ const StarterIntro = () => {
                     <WelcomeLogo source={require('../../assets/boneco.png')} />
                 </WelcomeImage>
                 <BeginConfigArea>
-                    <DefaultButton width="100%" text='Iniciar configuração' backgroundColor="#0072c0" underlayColor="#0B7Ac6" color="#fff" onPress={start} />
+                    <DefaultButton title='Iniciar configuração' width="100%" marginBottom='1px'  backgroundColor="#0072c0"  underlayColor="#0B7Ac6" color="#fff" onPress={start} />
                 </BeginConfigArea>
             </Main>
         </Container>
-    )
-}
+         )        }
 
 export default StarterIntro;

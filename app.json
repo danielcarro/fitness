@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "notedev",
-    "slug": "notedev",
+    "name": "fitness",
+    "slug": "fitness",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "src/assets/icon.png",
+    "icon": "",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "src/assets/splash.png",
+      "image": "",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -19,12 +19,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "src/assets/adaptive-icon.png",
+        "foregroundImage": "",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "src/assets/favicon.png"
+      "favicon": ""
     }
   }
 }
